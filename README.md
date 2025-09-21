@@ -1,69 +1,139 @@
-# React + TypeScript + Vite
+# eCommerce Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive eCommerce dashboard built with React 19, TypeScript, and Tailwind CSS v4. Features a dynamic dark/light theme system, Redux state management, and pixel-perfect UI components.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Deployed Application**: https://e-commerce-three-lilac-62.vercel.app/
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19** with latest features and optimizations
+- **TypeScript 5** for type safety and better developer experience
+- **Tailwind CSS v4** with CSS variables and custom design tokens
+- **Redux Toolkit** for centralized state management
+- **Dynamic Theming** - Light/Dark/System preference modes with persistence
+- **Responsive Design** - Mobile-first approach with breakpoint optimization
+- **shadcn-style Components** - Reusable UI primitives with variant support
+- **Theme-aware Assets** - Icons automatically switch between light/dark variants
+- **Modern Routing** - React Router v7 with nested layouts
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Frontend**: React 19, TypeScript 5
+- **Styling**: Tailwind CSS v4, CSS Variables
+- **State**: Redux Toolkit, React Redux
+- **Routing**: React Router DOM v7
+- **Build Tool**: Vite 7
+- **Package Manager**: pnpm
+- **Deployment**: Vercel
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📦 Installation
+
+Make sure you have [pnpm](https://pnpm.io/) installed on your system.
+
+```bash
+# Clone the repository
+git clone https://github.com/abhishekiiitr/e-commerce.git
+cd e-commerce/juspay-ui-developer
+
+# Install dependencies
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Start the development server
+pnpm dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Open http://localhost:5173 in your browser
 ```
+
+## 🏗️ Build & Deploy
+
+```bash
+# Type check
+pnpm run build
+
+# Preview production build locally
+pnpm preview
+
+# Lint code
+pnpm lint
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/           # Reusable UI components
+│   ├── layout/          # Layout components (Navbar, Sidebar, Rightbar)
+│   └── ui/              # shadcn-style primitives (Button, Card, etc.)
+├── constants/           # Shared constants and configurations
+│   ├── orders.ts        # Order data for OrderList
+│   └── ui.ts           # UI sizing and styling tokens
+├── pages/              # Route components
+│   ├── Home.tsx        # Dashboard home page
+│   └── OrderList.tsx   # Orders management page
+├── store/              # Redux store and slices
+│   ├── store.ts        # Store configuration
+│   └── themeSlice.ts   # Theme state management
+├── utils/              # Utility functions
+│   ├── assets.ts       # Theme-aware asset helpers
+│   └── theme.ts        # Theme hooks and utilities
+└── lib/                # External library configurations
+    └── utils.ts        # Class merging utilities (cn)
+```
+
+## 🎨 Theme System
+
+The application features a sophisticated theming system:
+
+- **Light Mode**: Clean, modern interface with soft grays and blues
+- **Dark Mode**: Rich dark theme with proper contrast ratios
+- **System Mode**: Automatically follows OS preference
+- **Persistence**: Theme choice saved to localStorage
+- **Asset Switching**: Icons automatically use light/dark variants
+
+## 🧩 Components
+
+### Layout Components
+- **Navbar**: Breadcrumb navigation with search and theme toggle
+- **Sidebar**: Collapsible navigation with favorites and pages
+- **Rightbar**: Notifications, activities, and contacts panel
+
+### UI Primitives
+- **Button**: Multiple variants (default, secondary, outline, ghost, link)
+- **Card**: Flexible card layouts with header/content sections
+- **Icon**: Consistent sizing with theme-aware asset loading
+
+## 📱 Responsive Design
+
+- **Adaptive Layout**: Sidebar and rightbar collapse on smaller screens
+- **Touch Friendly**: Optimized for touch interactions
+
+## 🔧 Configuration Files
+
+- `vite.config.ts` - Vite configuration with Tailwind v4 plugin
+- `tsconfig.json` - TypeScript configuration
+- `tailwind.config.js` - Tailwind CSS configuration (v4)
+- `package.json` - Dependencies and scripts
+
+## 🤝 Contributing
+
+This project follows modern React and TypeScript best practices:
+
+- **Type Safety**: Strict TypeScript configuration
+- **Component Structure**: Modular, reusable components
+- **State Management**: Centralized Redux patterns
+- **Styling**: Utility-first CSS with design tokens
+- **Asset Management**: Organized public assets with theme variants
+
+
+## 🙏 Acknowledgments
+
+- Built with modern React 19 features
+- Inspired by contemporary dashboard designs
+- Uses Tailwind CSS v4 design tokens
+- Optimized for performance and accessibility
