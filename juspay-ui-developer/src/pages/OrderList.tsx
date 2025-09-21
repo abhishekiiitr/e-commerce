@@ -116,9 +116,17 @@ export default function OrderList() {
   }
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900 p-3 md:p-6 min-h-screen">
+    <div 
+      className="p-3 md:p-6 min-h-screen"
+      style={{ 
+        backgroundColor: isDark ? '#1c1c1c' : '#ffffff'
+      }}
+    >
       <span
-        className="text-sm text-blue-600 dark:text-blue-400 font-medium py-1 underline cursor-pointer hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+        className="text-sm font-medium py-1 underline cursor-pointer transition-colors"
+        style={{ 
+          color: isDark ? '#fff' : '#1c1c1c' 
+        }}
         onClick={() => navigate('/')}
       >
         Go to Home
@@ -126,9 +134,19 @@ export default function OrderList() {
       <div className="font-semibold text-sm text-gray-900 dark:text-gray-100 mt-2">Order List</div>
 
       {/* Table */}
-      <div className="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+      <div 
+        className="mt-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden"
+        style={{ 
+          backgroundColor: isDark ? 'rgba(255, 255, 255, 0.05)' : '#ffffff'
+        }}
+      >
         {/* Filter/Search Header */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50">
+        <div 
+          className="flex flex-col md:flex-row items-start md:items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700"
+          style={{ 
+            backgroundColor: isDark ? 'rgba(255, 255, 255, 0.02)' : '#f9fafb'
+          }}
+        >
           <div className="flex items-center gap-2">
             <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">
               <Icon name="Plus" size={16} />
@@ -146,7 +164,7 @@ export default function OrderList() {
             data={orderList}
             searchFields={['orderId', 'userName', 'projectName', 'address']}
             placeholder="Search orders..."
-            className="w-80"
+            className="w-48"
             onSearchResults={handleSearchResults}
           />
         </div>

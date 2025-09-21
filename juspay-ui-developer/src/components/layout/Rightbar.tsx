@@ -41,13 +41,13 @@ export default function Rightbar() {
         ref={rightbarRef}
         className={`
           dark:bg-[#1c1c1c] dark:border-gray-700 
-          p-[20px] border-l border-gray-200
-          transition-all duration-500 ease-in-out transform overflow-hidden
+          border-l border-gray-200 min-h-screen
+          transition-all duration-500 ease-in-out transform
           ${rightbarMobileOpen 
-            ? 'fixed right-0 top-0 h-full z-50 translate-x-0 w-[280px]' 
-            : 'hidden lg:block w-[280px]'
+            ? 'fixed right-0 top-0 h-screen z-50 translate-x-0 w-[280px] p-[20px] overflow-auto' 
+            : 'hidden lg:block'
           }
-          ${!rightbarMobileOpen && rightbarCollapsed ? 'lg:w-0 lg:p-0 lg:border-0' : !rightbarMobileOpen ? 'lg:w-[280px]' : ''}
+          ${!rightbarMobileOpen && rightbarCollapsed ? 'lg:w-0 lg:p-0 lg:border-0 lg:overflow-hidden' : !rightbarMobileOpen ? 'lg:w-[280px] lg:p-[20px] lg:overflow-auto' : ''}
         `}
       >
       {(!rightbarCollapsed || rightbarMobileOpen) && (
@@ -77,9 +77,9 @@ export default function Rightbar() {
           <div className="mt-[24px]">
             <div className="dark:text-[#fff] text-[14px] font-semibold">Activities</div>
         {[
-          { text: 'You have a bug that needs...', time: 'Just now', icon: '3D05.png' },
+          { text: 'You have a bug that needs...', time: 'Just now', icon: 'notification-bug.png' },
           { text: 'Released a new version', time: '59 minutes ago', icon: 'Female05.png' },
-          { text: 'Submitted a bug', time: '12 hours ago', icon: '3D08.png' },
+          { text: 'Submitted a bug', time: '12 hours ago', icon: 'notification-submission.png' },
           { text: 'Modified A data in Page X', time: 'Today, 11:59 AM', icon: 'Male07.png' },
           { text: 'Deleted a page in Project X', time: 'Feb 2, 2023', icon: 'Male11.png' },
         ].map((currItem, index) => (
@@ -106,7 +106,7 @@ export default function Rightbar() {
           { icon: 'Male06.png', name: 'Orlando Diggs' },
           { icon: 'Female08.png', name: 'Andi Lane' },
           { icon: 'Female09.png', name: 'Kate Morrison' },
-          { icon: '3D03.png', name: 'Koray Okumus' },
+          { icon: 'avatar-koray.png', name: 'Koray Okumus' },
         ].map((currItem, index) => (
           <div key={index} className="flex gap-x-[8px] p-[4px] items-start">
             <div className="relative p-[4px] rounded-[8px]">

@@ -59,9 +59,7 @@ export default function Navbar() {
               </span>
               <span className="text-[#1c1c1c]/40 dark:text-white/40">Search</span>
             </div>
-            <div>
-              <span className="text-[#1c1c1c]/40 dark:text-white/40">/</span>
-            </div>
+            
           </div>
         </div>
 

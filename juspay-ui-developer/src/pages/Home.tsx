@@ -7,19 +7,19 @@ export default function Home() {
 
   return (
     <div className="dark:bg-[#1c1c1c] bg-white p-[24px] min-h-screen">
-      <span
-        className="dark:text-[#fff] text-[14px] text-[#1c1c1c] font-normal px-[8px] py-[4px] underline cursor-pointer"
-        onClick={() => navigate("/orderList")}
-      >
-        Go to OrderList
-      </span>
-      <div className="dark:text-[#fff] text-[14px] text-[#1c1c1c] font-semibold px-[8px] py-[4px] mb-[20px]">
-        eCommerce
+      <div className="flex items-center justify-between mb-[24px]">
+        <div className="dark:text-[#fff] text-[14px] text-[#1c1c1c] font-semibold px-[8px] py-[4px] mb-[20px]">
+          eCommerce
+        </div>
+          <span
+          className="dark:text-[#fff] text-[14px] text-[#1c1c1c] font-normal px-[8px] py-[4px] underline cursor-pointer"
+          onClick={() => navigate("/orderList")}
+        >
+          Go to OrderList
+        </span>
       </div>
 
-      {/* Section - 1 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px] mb-[24px]">
-        {/* Section - 1 => column - 1 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-[24px]">
             {Array.from([
               {
@@ -108,7 +108,6 @@ export default function Home() {
               </div>
             ))}
         </div>
-        {/* Section - 1 => column - 2 */}
         <div 
           className="p-[24px] rounded-[16px] text-[#1c1c1c]"
           style={{ 
@@ -128,9 +127,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Section - 2 */}
       <div className="grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-[24px] mb-[24px]">
-        {/* Section - 2 => Column - 1 */}
         <div 
           className="p-[24px] rounded-[16px]"
           style={{ 
@@ -160,7 +157,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Section - 2 => Column - 2 */}
         <div 
           className="p-[24px] rounded-[16px]"
           style={{ 
@@ -227,9 +223,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Section - 3 */}
       <div className="grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-[24px]">
-        {/* Section - 3 => Column - 1 */}
         <div 
           className="p-[24px] rounded-[16px]"
           style={{ 
@@ -319,7 +313,6 @@ export default function Home() {
             </table>
           </div>
         </div>
-        {/* Section - 3 => Column - 2 */}
         <div 
           className="p-[24px] rounded-[16px]"
           style={{ 
@@ -330,7 +323,7 @@ export default function Home() {
           <div className="text-[14px] font-semibold mb-[16px]">Total Sales</div>
           <div className="flex justify-center mb-[16px] relative">
             <img
-              src={`${isDark ? "dark/" : ""}01.png`}
+              src={`${isDark ? "dark/" : ""}sales-chart.png`}
               className="w-[120px] h-[120px] max-w-full max-h-full"
             />
             <div className="absolute bottom-[20px] left-[25px] bg-[#1c1c1c] bg-opacity-80 px-[8px] py-[4px] text-[#fff] text-[12px] rounded-[8px]">

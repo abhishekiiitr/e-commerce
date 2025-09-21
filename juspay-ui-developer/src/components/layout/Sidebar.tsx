@@ -45,10 +45,10 @@ export default function Sidebar() {
         className={`
           dark:bg-[#1c1c1c] dark:text-[#fff] bg-white text-[#1c1c1c]
           p-4 text-[14px] border-r border-gray-200 dark:border-gray-700
-          transition-all duration-300 ease-in-out
+          transition-all duration-300 ease-in-out min-h-screen overflow-auto
           ${isCollapsed ? 'w-[70px]' : 'w-[212px]'}
           ${sidebarMobileOpen 
-            ? 'fixed left-0 top-0 h-full z-50 w-[212px]' 
+            ? 'fixed left-0 top-0 h-screen z-50 w-[212px]' 
             : 'hidden md:block'
           }
         `}
@@ -69,11 +69,11 @@ export default function Sidebar() {
             <div>
               <ul>
                 <li className="py-[4px] px-[8px] flex items-center gap-x-2 opacity-50">
-                  <img src={getIconSrc('FolderNotch.png', isDark)} className={ICON.sm} />
+                  <div className="w-[6px] h-[6px] rounded-full bg-[#1c1c1c]/30 dark:bg-white/30"></div>
                   <span className="font-normal text-[#1c1c1c]/40 dark:text-white/40">Overview</span>
                 </li>
                 <li className="py-[4px] px-[8px] flex items-center gap-x-2 opacity-50">
-                  <img src={getIconSrc('FolderNotch.png', isDark)} className={ICON.sm} />
+                  <div className="w-[6px] h-[6px] rounded-full bg-[#1c1c1c]/30 dark:bg-white/30"></div>
                   <span className="font-normal text-[#1c1c1c]/40 dark:text-white/40">Projects</span>
                 </li>
               </ul>

@@ -11,15 +11,17 @@ function RootLayout() {
   const showRightbar = location.pathname === '/'
 
   return (
-    <div className="min-h-dvh w-full bg-background text-foreground">
-      <div className="flex">
-        <aside className="hidden md:block"><Sidebar /></aside>
-        <main className="flex-1 min-w-0">
+    <div className="min-h-screen w-full bg-background text-foreground flex flex-col">
+      <div className="flex flex-1 min-h-screen">
+        <aside className="flex-shrink-0"><Sidebar /></aside>
+        <main className="flex-1 min-w-0 flex flex-col">
           <Navbar />
-          <Outlet />
+          <div className="flex-1 min-h-0">
+            <Outlet />
+          </div>
         </main>
         {showRightbar && (
-          <aside className="hidden lg:block"><Rightbar /></aside>
+          <aside className="flex-shrink-0"><Rightbar /></aside>
         )}
       </div>
     </div>

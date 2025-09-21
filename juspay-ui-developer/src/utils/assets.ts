@@ -1,10 +1,9 @@
 // Centralized asset helpers: resolve themed icon paths and list dark variants
 
 const DARK_VARIANTS = new Set<string>([
-  '01.png',
+  'sales-chart.png',
   'Add.png',
   'ArrowFall.png',
-  'ArrowLineDown.png',
   'ArrowLineLeft.png',
   'ArrowLineRight.png',
   'ArrowRise.png',

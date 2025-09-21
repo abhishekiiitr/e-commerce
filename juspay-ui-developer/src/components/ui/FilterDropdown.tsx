@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Filter, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { setStatus, type FilterStatus } from '../../store/filterSlice'
 import type { RootState } from '../../store/store'
+import { useIsDark } from '../../utils/theme'
+import { getIconSrc } from '../../utils/assets'
 
 const statusOptions: { value: FilterStatus; label: string }[] = [
   { value: 'ALL', label: 'All Status' },
@@ -17,6 +19,7 @@ export const FilterDropdown = () => {
   const dispatch = useDispatch()
   const { status } = useSelector((state: RootState) => state.filter)
   const [isOpen, setIsOpen] = useState(false)
+  const isDark = useIsDark()
 
   const handleStatusChange = (newStatus: FilterStatus) => {
     dispatch(setStatus(newStatus))
@@ -28,8 +31,14 @@ export const FilterDropdown = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 ease-in-out"
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+        }}
       >
-        <Filter size={14} className="text-gray-400 opacity-50" />
+        <img 
+          src={getIconSrc('FunnelSimple.png', isDark)} 
+          className="w-[14px] h-[14px] opacity-50" 
+        />
         <ChevronDown 
           size={14} 
           className={`text-gray-400 opacity-50 transition-transform duration-200 ease-in-out ${isOpen ? 'rotate-180' : ''}`} 
@@ -37,14 +46,24 @@ export const FilterDropdown = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50">
+        <div 
+          className="absolute top-full left-0 mt-1 w-40 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50"
+          style={{
+            backgroundColor: isDark ? '#1c1c1c' : '#ffffff',
+          }}
+        >
           {statusOptions.map((option) => (
             <button
               key={option.value}
               onClick={() => handleStatusChange(option.value)}
-              className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150 ease-in-out first:rounded-t-lg last:rounded-b-lg ${
-                option.value === status ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'
+              className={`w-full text-left px-3 py-2 text-sm transition-colors duration-150 ease-in-out first:rounded-t-lg last:rounded-b-lg ${
+                option.value === status 
+                  ? 'bg-gray-100 dark:bg-gray-600' 
+                  : 'hover:bg-gray-50 dark:hover:bg-gray-700'
               }`}
+              style={{
+                color: isDark ? '#fff' : '#374151'
+              }}
             >
               {option.label}
             </button>
